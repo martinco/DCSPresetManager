@@ -1,0 +1,77 @@
+# GROUP Radio PST
+F18: COMM 1
+SA342: None
+UH1: UHF AN/ARC-51
+Mi8: R863 (not R828)
+A10C-CUrious
+AV8B: V/UHF Radio 1
+C101: V/TVU-740
+F-14B: VHF/UHF AN/ARC-182 (aft)
+F-16: UHF
+L39: R832M
+M2k: UHF
+
+# RADIOS
+
+AV8B:
+  V/UHF ARC-210 Radio 1:*       26      : 30, 399.975, 0.025
+  V/UHF ARC-210 Radio 2:        26      : 30, 399.975, 0.025
+  V/UHF RCS Presets:            30      : 30, 399.975, 0.025
+
+C101CC
+  V/TVU-740                     21      118 399.975
+
+C101EB
+  AN/ARC-164                    20      225 399.975 0.025
+
+F16**
+  COMM 1 (UHF) AN/ARC-164*       20      225 399.975 0.025
+  COMM 2 (VHF) AN/ARC-222       20      30  87.975 0.025
+                                        116 155.975
+
+L-39C / L-39ZA
+  R-832M                        19      118 390
+
+M2k
+    UHF Radio                   20      225 399.975 0.025
+    V/UHF Radui                 20      118 139.975 0.025
+                                        225 399.975 0.025
+
+Mi8
+    R863                        20      100 399.9
+    R-828                       10      20 59.9
+
+AJS
+    UNK                         40 (100-139)   103 400 *
+                                 3 special     103 400
+                                 E,F,G         103 400 ...err
+
+F-18C
+    COMM 1 (ARC-210)*            20      30-87.995
+                                        118-173.995
+                                        225-399.975
+    COMM 2 (ARC-210)*            20      30-87.995
+                                        118-173.995
+                                        225-399.975
+
+SA-342
+ FM Radio                       8       30 - 87.975 (0 and RG are last 2)
+
+UH-1H
+  UHF AN/ARC-51                 20      225 399.975
+
+Ka-50 **
+    R-828                      1-10      20 - 59.9
+    ARK-22                      16      150 1750                         kHz, 1-8 inner outer split...
+
+Mi-24P
+    R-863*                       0-19      100 399.9                In Pit 1 or 0 ?
+    R-828                       0-9         20 - 59.9
+
+AH-64D BLK III
+    *None change when you set group in ME
+
+    ARC-186                     10      108 151.975 0.025
+    ARC-164                     10      225 399.975 0.025
+    FM-1: ARC-210D              10      30 - 87.975 0.025
+    FM-2: ARC-210D              10      30 - 87.975 0.025

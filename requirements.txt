@@ -1,0 +1,4 @@
+six
+PySide2
+versioneer
+pyinstaller

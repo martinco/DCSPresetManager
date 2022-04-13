@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+
+<Product
+		Id="*"
+		Language='1033'
+		Name="DCS Preset Manager"
+		Version="$(env.VERSION)"
+		Manufacturer="MartinCo"
+		UpgradeCode="964c8b52-0b6c-48a4-b084-8ee4c4519d62">
+
+	<Package InstallerVersion="200"
+		Compressed="yes"
+		InstallScope="perMachine" 
+		Platform="x64" />
+		
+	<!-- UI Elements -->
+	<WixVariable Id="WixUIBannerBmp" Value="build\wix\WixUIBannerBmp.bmp" />
+	<WixVariable Id="WixUIDialogBmp" Value="build\wix\WixUIDialogBmp.bmp" />
+	
+	<!-- General Properties -->
+	<Property Id="WIXUI_INSTALLDIR" Value="RootData" />
+	
+	<!-- Add remove programs icon (from heat) -->
+	<Property Id="ARPPRODUCTICON" Value="DCSPresetManagerGUI.ico" />
+
+
+	<MediaTemplate EmbedCab="yes" />
+	
+	<!-- Folder Structure -->
+	<Directory Id="TARGETDIR" Name="SourceDir">
+		<Directory Id='ProgramFiles64Folder' Name='PFiles'>
+			<Directory Id='MartinCo' Name='MartinCo'>
+				<Directory Id='RootData' Name='DCSPresetManager' />
+			</Directory>
+		</Directory>
+		<Directory Id="ProgramMenuFolder" />
+	</Directory>
+
+	<!-- Icon -->
+	<Icon Id="DCSPresetManagerGUI.ico" SourceFile="dist\DCSPresetManager\dcs_preset_manager\resources\icon.ico" />
+
+
+	<!-- Feature -->
+	<Feature Id="MainFeature" Title="Main Feature" Level="1">
+
+		<ComponentGroupRef Id="RootDataGroup" />
+		
+		<Component Id="PathEnvar" Guid="0a79d88a-cd69-40d3-ab75-03677ef61497" Directory="TARGETDIR" >
+			<Environment
+				Id="DCSPresetManagerPath"
+				Action="set"
+				Name="PATH"
+				Part="last"
+				System="yes"
+				Value="[RootData]" />
+		</Component>
+		
+	</Feature>
+	
+	<!-- Skip EULA --> 
+	<UI>
+	  <UIRef Id="WixUI_InstallDir" />
+	  <Publish Dialog="WelcomeDlg"
+			Control="Next"
+			Event="NewDialog"
+			Value="InstallDirDlg"
+			Order="2">1</Publish>
+	  <Publish Dialog="InstallDirDlg"
+			Control="Back"
+			Event="NewDialog"
+			Value="WelcomeDlg"
+			Order="2">1</Publish>
+	</UI>
+
+</Product>
+</Wix>
